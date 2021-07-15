@@ -1,15 +1,21 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import Form from './components/Form';
 
 const App = () => {
+  const hideKeyboard = () => {
+    Keyboard.dismiss();
+  }
+
   return (
     <>
-      <View style={styles.app}>
-        <View style={styles.container}>
-          <Form />
+      <TouchableWithoutFeedback onPress={() => hideKeyboard()}>
+        <View style={styles.app}>
+          <View style={styles.container}>
+            <Form />
+          </View>
         </View>
-      </View>
+      </TouchableWithoutFeedback>
     </>
   );
 };
